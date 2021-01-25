@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import com.diegoemmel.cursomc.domain.Produto;
 
 @Repository
-public interface ProdutoRepository extends JpaRepository<Produto,Serializable>{
+public interface ProdutoRepository extends JpaRepository<Produto, Serializable> {
 
 }
