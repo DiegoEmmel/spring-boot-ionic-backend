@@ -34,12 +34,13 @@ public class CategoriaService {
 	}
 
 	public Categoria update(Categoria obj) {
-		find(obj.getId());
+		Categoria newObj = find(obj.getId());
+		UpdateData(newObj, obj);
 		/*
 		 * O método save serve tanto para inserir quanto para atualizar, quando o id é
 		 * null ele insere quando não é ele atualiza
 		 */
-		return repo.save(obj);
+		return repo.save(newObj);
 	}
 
 	public void delete(Integer id) {
@@ -63,5 +64,9 @@ public class CategoriaService {
 
 	public Categoria fromDTO(CategoriaDTO objDto) {
 		return new Categoria(objDto.getId(), objDto.getNome());
+	}
+
+	private void UpdateData(Categoria newObj, Categoria obj) {
+		newObj.setNome(obj.getNome());
 	}
 }
